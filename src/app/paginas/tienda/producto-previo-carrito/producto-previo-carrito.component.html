@@ -1,0 +1,41 @@
+<mat-list>
+  <div mat-subheader>Productos</div>
+  <div *ngIf="obtenerProductos().length==0">
+    <h4 class="px-4 font-bold">No hay productos</h4>
+  </div>
+  <mat-list-item *ngFor="let producto of obtenerProductos(); let i = index">
+    <div fxLayoutAlign="space-between start">
+      <div>
+        <div matListItemTitle>{{producto.name}}</div>
+        <div matListItemLine>S/. {{producto.valor}}</div>
+      </div>
+
+<div>
+  <button mat-icon-button (click)="removerProducto(i)">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+    </div>
+
+
+
+  </mat-list-item>
+  <div *ngIf="obtenerProductos().length>0">
+    <mat-divider></mat-divider>
+    <mat-list-item>
+      <div fxLayoutAlign="space-between start">
+        <div>
+          <div matListItemLine>Total</div>
+        </div>
+
+  <div>
+    <div matListItemLine>S/. {{obtenerTotal()}}</div>
+  </div>
+
+      </div>
+    </mat-list-item>
+  </div>
+
+</mat-list>
+<a mat-list-item routerLinkActive="list-item-active" (click)="pagar()" *ngIf="obtenerProductos().length>0">Generar pedido</a>

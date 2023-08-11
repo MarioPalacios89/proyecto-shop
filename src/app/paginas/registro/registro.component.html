@@ -1,0 +1,136 @@
+
+<mat-drawer-container>
+  <mat-drawer mode="over" [opened]="sideBarOpen" [disableClose]="true" [position]="'end'">
+    <mat-nav-list>
+      <div class="flex items-center">
+        <img src="assets/imagenes/logo.png" class="w-72 h-40" alt="">
+      </div>
+      <mat-divider></mat-divider>
+      <app-producto-previo-carrito></app-producto-previo-carrito>
+            <a mat-list-item routerLinkActive="list-item-active" (click)="sideBarOpen=false">Cerrar</a>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+<app-header (cerrarMarket)="sideBarOpen=$event"></app-header>
+<section class="bg-gray-50 dark:bg-gray-900">
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+    <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+      <img src="assets/imagenes/logo.png" class="w-72 h-40" alt="">
+    </a>
+      <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <div class="p-6 space-y-4 md:space-y-6 sm:p-8"  fxLayout="column">
+              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white" fxFlex>
+                  Crear una cuenta
+              </h1>
+              <form
+              autocomplete="off"
+              novalidate
+              [formGroup]="form"
+              fxLayout="row wrap"
+              fxLayout.lt-md="column"
+              fxFlex="100%"
+              fxLayoutGap="8px"
+              fxLayoutGap.lt-md="0"
+            >
+              <mat-form-field
+                appearance="fill"
+                fxFlex="calc(100% - 8px)"
+                fxFlex.lt-md="100%"
+              >
+                <mat-label>Nombres y Apellidos </mat-label>
+                <input
+                  type="text"
+                  name="nombres_apellidos"
+                  formControlName="nombres_apellidos"
+                  matInput
+                />
+              </mat-form-field>
+              <mat-form-field
+                appearance="fill"
+                fxFlex="calc(100% - 8px)"
+                fxFlex.lt-md="100%"
+              >
+                <mat-label>Número de documento </mat-label>
+                <input type="text" name="numero_documento" formControlName="numero_documento" matInput maxlength="8"/>
+              </mat-form-field>
+              <mat-form-field
+              appearance="fill"
+              fxFlex="calc(100% - 8px)"
+              fxFlex.lt-md="100%"
+            >
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="fecha_nacimiento">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+              <mat-form-field
+                appearance="fill"
+                fxFlex="calc(100% - 8px)"
+                fxFlex.lt-md="100%"
+              >
+                <mat-label>Correo eléctronico </mat-label>
+                <input type="text" name="email" formControlName="email" matInput />
+              </mat-form-field>
+              <mat-form-field
+                appearance="fill"
+                fxFlex="calc(100% - 8px)"
+                fxFlex.lt-md="100%"
+              >
+                <mat-label>Número celular </mat-label>
+                <input
+                  type="text"
+                  name="celular"
+                  formControlName="celular"
+                  matInput
+                  maxlength="9"
+                />
+              </mat-form-field>
+              <mat-form-field
+                appearance="fill"
+                fxFlex="calc(100% - 8px)"
+                fxFlex.lt-md="100%"
+              >
+                <mat-label>Dirección </mat-label>
+                <input
+                  type="text"
+                  name="direccion"
+                  formControlName="direccion"
+                  matInput
+                />
+              </mat-form-field>
+              <mat-form-field
+                appearance="fill"
+                fxFlex="calc(100% - 8px)"
+                fxFlex.lt-md="100%"
+              >
+                <mat-label>Contraseña </mat-label>
+                <input
+                  type="password"
+                  name="password"
+                  formControlName="password"
+                  matInput
+                />
+              </mat-form-field>
+            </form>
+            <button
+            type="button"
+            mat-raised-button
+            color="primary"
+            class="rounded shadow-none cursor-pointer font-normal transition w-full"
+            (click)="grabar()"
+        >
+            Guardar
+        </button>
+        <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+          ¿Tienes una cuenta? <a class="font-medium text-blue-600 underline" routerLink="/login">Inicia sesión aqui</a>
+      </p>
+          </div>
+      </div>
+
+      </div>
+  </div>
+</section>
+<app-footer></app-footer>
+    </mat-drawer-content>
+

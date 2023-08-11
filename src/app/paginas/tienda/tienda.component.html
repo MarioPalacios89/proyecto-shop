@@ -1,0 +1,72 @@
+
+
+<mat-drawer-container>
+  <mat-drawer mode="over" [opened]="sideBarOpen" [disableClose]="true" [position]="'end'">
+    <mat-nav-list>
+      <div class="flex items-center">
+        <img src="assets/imagenes/logo.png" class="w-72 h-40" alt="">
+      </div>
+      <mat-divider></mat-divider>
+<app-producto-previo-carrito></app-producto-previo-carrito>
+      <a mat-list-item routerLinkActive="list-item-active" (click)="sideBarOpen=false">Cerrar</a>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-header (cerrarMarket)="sideBarOpen=$event"></app-header>
+
+    <div class="container mx-auto  max-w-full   bg-gray-600 mb-5">
+        <div class="flex flex-col items-center justify-center bg-cover bg-center" style="min-height: 350px;background-image:url('assets/imagenes/banner.jpg')">
+            <!-- <h1 class="font-weight-semi-bold uppercase mb-3">Our Shop</h1>
+            <div class="inline-flex">
+                <p class="m-0"><a href="">Home</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">Shop</p>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="container mx-auto px-12 pt-5">
+      <app-productos class="w-full"></app-productos>
+        <!-- <div class="flex flex-wrap">
+
+          <div class="lg:w-1/4 pr-4 pl-4 md:w-full pr-4 pl-4">
+            <app-filtro></app-filtro>
+    </div>
+            <div class="lg:w-3/4 pr-4 pl-4 md:w-full pr-4 pl-4">
+                <div class="flex flex-wrap  pb-3">
+                    <div class="w-full pb-1">
+
+                        <div class="flex items-center justify-between mb-4">
+                            <form action="">
+                                <div class="relative flex items-stretch w-full">
+                                    <input type="text" class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded" placeholder="Buscar por nombre">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-transparent text-blue-600">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="relative ml-4">
+                                <button type="button" class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">Ordenar por</button>
+                            </div>
+                        </div>
+                    </div>
+
+                      <app-productos class="w-full"></app-productos>
+
+
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+    <app-footer></app-footer>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+
+
+
+

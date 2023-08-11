@@ -1,0 +1,126 @@
+<div class="page-layout dialog-content-wrapper">
+  <mat-toolbar matDialogTitle class="bg-blue-700 text-white mb-8">
+    <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+      <div fxLayout="row" fxLayoutAlign="start center">
+        <h2 class="text-2xl font-semibold tracking-tight leading-8 text-white">
+          Usuario
+        </h2>
+      </div>
+      <button
+        mat-icon-button
+        class="bg-sky-800"
+        (click)="matDialogRef.close()"
+        aria-label="Close dialog"
+      >
+        <mat-icon class="text-white">close</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <div mat-dialog-content class="p-8 pb-0 m-0">
+    <form
+      autocomplete="off"
+      novalidate
+      [formGroup]="form"
+      fxLayout="row wrap"
+      fxLayout.lt-md="column"
+      fxFlex="100%"
+      fxLayoutGap="8px"
+      fxLayoutGap.lt-md="0"
+    >
+      <mat-form-field
+        appearance="fill"
+        fxFlex="calc(100% - 8px)"
+        fxFlex.lt-md="100%"
+      >
+        <mat-label>Código </mat-label>
+        <input type="text" name="id" formControlName="id" matInput />
+      </mat-form-field>
+      <mat-form-field
+        appearance="fill"
+        fxFlex="calc(100% - 8px)"
+        fxFlex.lt-md="100%"
+      >
+        <mat-label>Nombres y Apellidos </mat-label>
+        <input
+          type="text"
+          name="nombres_apellidos"
+          formControlName="nombres_apellidos"
+          matInput
+        />
+      </mat-form-field>
+      <mat-form-field
+        appearance="fill"
+        fxFlex="calc(100% - 8px)"
+        fxFlex.lt-md="100%"
+      >
+        <mat-label>DNI </mat-label>
+        <input type="text" name="dni" formControlName="dni" matInput />
+      </mat-form-field>
+      <mat-form-field
+        appearance="fill"
+        fxFlex="calc(100% - 8px)"
+        fxFlex.lt-md="100%"
+      >
+        <mat-label>Email </mat-label>
+        <input type="text" name="email" formControlName="email" matInput />
+      </mat-form-field>
+      <mat-form-field
+        appearance="fill"
+        fxFlex="calc(100% - 8px)"
+        fxFlex.lt-md="100%"
+      >
+        <mat-label>Teléfono </mat-label>
+        <input
+          type="text"
+          name="telefono"
+          formControlName="telefono"
+          matInput
+        />
+      </mat-form-field>
+      <mat-form-field
+        appearance="fill"
+        fxFlex="calc(100% - 8px)"
+        fxFlex.lt-md="100%"
+      >
+        <mat-label>Dirección </mat-label>
+        <input
+          type="text"
+          name="direccion"
+          formControlName="direccion"
+          matInput
+        />
+      </mat-form-field>
+      <mat-form-field
+        appearance="fill"
+        fxFlex="calc(100% - 8px)"
+        fxFlex.lt-md="100%"
+      >
+        <mat-label>Usuario </mat-label>
+        <input
+          type="text"
+          name="username"
+          formControlName="username"
+          matInput
+        />
+      </mat-form-field>
+    </form>
+  </div>
+
+  <mat-divider class="mt-6 border-none"></mat-divider>
+  <div
+    mat-dialog-actions
+    class="panel-footer m-0 px-12 py-4 border-none bg-slate-100"
+    fxLayout="row"
+    fxLayoutAlign="space-between center"
+  >
+    <div fxFlex="auto" fxLayoutAlign="end center">
+      <a
+        mat-stroked-button
+        class="rounded shadow-none mr-4 cursor-pointer font-normal transition hover:font-medium"
+        (click)="matDialogRef.close()"
+        >Cerrar
+      </a>
+    </div>
+  </div>
+</div>

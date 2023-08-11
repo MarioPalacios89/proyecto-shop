@@ -1,0 +1,82 @@
+
+
+
+
+<mat-drawer-container>
+  <mat-drawer mode="over" [opened]="sideBarOpen" [disableClose]="true" [position]="'end'">
+    <mat-nav-list>
+      <div class="flex items-center">
+        <img src="assets/imagenes/logo.png" class="w-72 h-40" alt="">
+      </div>
+      <mat-divider></mat-divider>
+      <app-producto-previo-carrito></app-producto-previo-carrito>
+            <a mat-list-item routerLinkActive="list-item-active" (click)="sideBarOpen=false">Cerrar</a>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-header (cerrarMarket)="sideBarOpen=$event"></app-header>
+    <div class="h-screen bg-gray-100 pt-20" fxLayout="column">
+      <h1 class="mb-10 text-center text-2xl font-bold">Productos</h1>
+      <div class="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
+
+<div fxLayout="row wrap" fxFlex="70">
+  <div class="rounded-lg" *ngFor="let producto of obtenerProductos(); let i = index" fxFlex="100">
+    <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
+      <img src="assets/imagenes/licores/{{producto.imagen}}" class="rounded-lg w-40 h-32" />
+      <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
+        <div class="mt-5 sm:mt-0">
+          <h2 class="text-lg font-bold text-gray-900">{{producto.name}}</h2>
+        </div>
+        <div class="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
+          <!-- <div class="flex items-center border-gray-100">
+            <span class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
+            <input class="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value="2" min="1" />
+            <span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"> + </span>
+          </div> -->
+          <div class="flex items-center space-x-4">
+            <p class="text-sm">S/. {{producto.valor}}</p>
+
+            <button (click)="removerProducto(i)">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+        <div class="mt-6 rounded-lg border bg-white p-6 shadow-md mt-0 h-52" fxFlex="30" fxLayout="column">
+          <!-- <hr class="my-4" /> -->
+          <div class="flex justify-between">
+            <p class="text-lg font-bold">Total</p>
+            <div class="">
+              <p class="mb-1 text-lg font-bold">S/. {{obtenerTotal()}}</p>
+              <p class="text-sm text-gray-700">incluido IGV</p>
+            </div>
+          </div>
+          <a class="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600 text-center" (click)="registrarPedido()">Pagar</a>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+    </mat-drawer-content>
+    </mat-drawer-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

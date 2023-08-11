@@ -1,0 +1,44 @@
+<mat-toolbar color="primary" *ngIf="verificarLogin()">
+  <button (click)="sideBarOpen=!sideBarOpen" mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="spacer"></span>
+  <span class="welcome-text">Hola Usuario</span>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>person_pin</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+
+
+
+
+
+<mat-drawer-container *ngIf="verificarLogin()">
+  <mat-drawer mode="side" [opened]="sideBarOpen">
+    <mat-nav-list>
+      <div class="flex items-center">
+        <img src="assets/imagenes/logo.png" class="w-72 h-40" alt="">
+      </div>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="usuarios"
+        >Usuarios</a
+      >
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="productos"
+        >Productos</a
+      >
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="pedidos"
+        >Pedidos</a
+      >
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+<router-outlet *ngIf="!verificarLogin()"></router-outlet>
